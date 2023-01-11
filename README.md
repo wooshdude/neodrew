@@ -1,1 +1,3 @@
 # neodrew
+
+i won't stop you from using this code, but it's going to suck...
