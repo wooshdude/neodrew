@@ -106,4 +106,4 @@ async def on_ready():
     print(f"Client ready!")
 
 
-client.run('ODM1NzQwMzMwMTExOTI2MzEy.Gk2Wr0.ZrLVLLA3UdFHrvWqKf_OzTPGM5fj1fH7Glunk8')
+client.run('')
