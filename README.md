@@ -4,7 +4,7 @@ The official discord bot of Artism(Surreal) (https://artism.place).
 This repository is open source. Feel free to contribute or fork it.
 
 ## Dependencies
-If you intend to use these dependencies, or wish to add your own, I recommend that you a virtual environment. I'll leave a quick tutorial for linux users below.
+If you intend to use these dependencies, or wish to add your own, I recommend that you a virtual environment. I'll leave a quick tutorial for linux users [here](#how-to-use-a-python-virtual-environment).
 
 #### Discord.py V2.0  
 `pip install -U git+https://github.com/Rapptz/discord.py`
