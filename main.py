@@ -97,13 +97,11 @@ async def ping(interaction):
 tree.add_command(help, guild=discord.Object(id=Partners.artism))
 
 
-
-
 # On bot startup
 @client.event
 async def on_ready():
     await tree.sync(guild=discord.Object(id=Partners.artism))
     print(f"Client ready!")
 
-
-client.run('')
+with open('../token.txt', 'r') as token:
+    client.run(token.read())
