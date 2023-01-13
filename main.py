@@ -12,13 +12,16 @@ from discord import app_commands
 from discord.ext import commands
 from discord.utils import get
 
+# Flask libraries
+from flask import Flask, redirect, render_template, flash, app
+
 # Base libraries
 import time
-import datetime
+from datetime import datetime, date
 import random
 
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 
@@ -95,6 +98,19 @@ async def ping(interaction):
     await interaction.response.send_message("command for debugging. should reply with 'pong'")
 
 tree.add_command(help, guild=discord.Object(id=Partners.artism))
+
+current_guild = None
+
+# On message
+@client.event
+async def on_message(interaction):
+    today = date.today()
+    now = datetime.now()
+    global current_guild
+    if current_guild != interaction.author.guild:
+        current_guild = interaction.author.guild
+        print(f'{current_guild}:')
+    print(f'[({now}) {interaction.author.name} in {interaction.channel.name}] {interaction.content}')
 
 
 # On bot startup
