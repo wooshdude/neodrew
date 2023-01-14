@@ -30,3 +30,6 @@ Before you've cloned this repoo, create a base directory somewhere. This is wher
 `source bin/activate`  
 
 You should see the name of the project directory on the left in parentheses. That means you've successfully created the virtual environment. You can freely use `pip install` and libraries you install won't be added to your PATH. If you want to leave the virtual environment you can use `deactivate` in any directory.
+
+Feel free to clone the repository inside this directory or somewhere else.  
+`git clone https://github.com/wooshdude/neodrew`
