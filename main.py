@@ -22,9 +22,8 @@ import random
 
 
 intents = discord.Intents.all()
-client = discord.Client(intents=intents)
+client = discord.Client(intents=intents, help_command=None)
 tree = app_commands.CommandTree(client)
-
 
 class Partners:
     def add(self):
@@ -94,20 +93,55 @@ class RoleSelectView(discord.ui.View):
 
 # All help commands
 @tree.command()
-async def help_commands(interaction):
-    await interaction.response.send_message("help command!")
+async def help(interaction):
+    em = discord.Embed(title='Help', description=f"Use /help <command> for more info.", color=0x1abc9c)
+
+    em.add_field(name='Commands', value='poll\nnick\nroles')
+
+    await interaction.response.send_message(embed=em)
 
 help = app_commands.Group(name='help', description='View helpfull command information!')
+
 
 @help.command()
 async def ping(interaction):
     await interaction.response.send_message("command for debugging. should reply with 'pong'")
 
-tree.add_command(help, guild=discord.Object(id=Partners.artism))
 
-current_guild = None
+@help.command()
+async def poll(interaction):
+    em = discord.Embed(title='poll', description='Starts a poll. User and channel pings will still work.',
+                       color=0x1abc9c)
+    em.add_field(name='**Usage**', value=f'/poll <content>')
+    em.add_field(name='Example', value=f'/poll example poll question')
+
+    await interaction.response.send_message(embed=em)
+
+
+@help.command()
+async def nick(interaction):
+    em = discord.Embed(title='nick', description='Allows users to edit nicknames', color=0x1abc9c)
+    em.add_field(name='**Syntax**', value=f'/nick <@user> <nickname>')
+    em.add_field(name='Example', value=f'/nick @example example nickname')
+
+    await interaction.response.send_message(embed=em)
+
+
+@help.command()
+async def roles(interaction):
+    em = discord.Embed(title='roles', description='Lets the user select their roles', color=0x1abc9c)
+    em.add_field(name='**Syntax**', value=f'/roles')
+
+    await interaction.response.send_message(embed=em)
+
+
+tree.remove_command('help')
+tree.add_command(help)
+
 
 # On message
+current_guild = None
+
 @client.event
 async def on_message(interaction):
     today = date.today()
