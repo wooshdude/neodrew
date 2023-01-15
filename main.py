@@ -35,13 +35,13 @@ class Partners:
 
 
 # Command for testing. Will respond with 'pong' on use.
-@tree.command(name='ping', description='ping pong', guild=Partners.add(Partners.artism))
+@tree.command(name='ping', description='ping pong')
 async def ping(interaction):
     await interaction.response.send_message("pong!")
 
 
 # Drew commands
-@tree.command(name='poll', description='Start a new poll. Up and down vote reactions will be automatically added.', guild=Partners.add(Partners.artism))
+@tree.command(name='poll', description='Start a new poll. Up and down vote reactions will be automatically added.')
 async def poll(interaction, *, question: str):
     start = time.time()
     await interaction.response.send_message(f"`Public poll`")
@@ -55,6 +55,12 @@ async def poll(interaction, *, question: str):
 async def roles(interaction):
     await interaction.response.send_message("Select a role.", view=RoleSelectView(), ephemeral=True)
     
+
+@tree.command(name='nick', description="Change someone's nickname.")
+async def nick(interaction, member: discord.Member, *, nickname: str):
+    await member.edit(nick=nickname)
+    await interaction.response.send_message(f'nickname was changed for {member.mention} ')
+
 
 # Buttons and menus
 class RoleSelect(discord.ui.Select):
@@ -116,7 +122,7 @@ async def on_message(interaction):
 # On bot startup
 @client.event
 async def on_ready():
-    await tree.sync(guild=discord.Object(id=Partners.artism))
+    await tree.sync()
     print(f"Client ready!")
 
 with open('../token.txt', 'r') as token:
