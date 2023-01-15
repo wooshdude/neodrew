@@ -20,7 +20,7 @@ This repository is open source. Feel free to contribute or fork it.
 ## How to use a Python Virtual Environment
 A Python Virtual Environment is the best way to keep track of your pip libraries. I'll go over how to create one for specificly this project, but the steps will be the same for most other projects.
 
-Before you've cloned this repoo, create a base directory somewhere. This is where you'll create your virtual environment.
+Before you've cloned this repo, create a new directory somewhere. This is where you'll make your virtual environment.
 
 #### Install Python Venv  
 `pip install python3-venv`
