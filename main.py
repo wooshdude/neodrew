@@ -76,11 +76,11 @@ class RoleSelect(discord.ui.Select):
             role = interaction.guild.get_role(587473995155374111)
             await interaction.user.add_roles(role)
             await interaction.response.send_message(f"Aquired new role <@&587473995155374111>", ephemeral=True)
-        elif self.values[0] == "Option 2":
+        elif self.values[0] == "Minecraft":
             role = interaction.guild.get_role(728352636713173002)
             await interaction.user.add_roles(role)
             await interaction.response.send_message(f"Aquired new role <@&728352636713173002>", ephemeral=True)
-        elif self.values[0] == "Option 3":
+        elif self.values[0] == "Overwatch":
             role = interaction.guild.get_role(1026888371710214154)
             await interaction.user.add_roles(role)
             await interaction.response.send_message(f"Aquired new role <@&1026888371710214154>", ephemeral=True)
