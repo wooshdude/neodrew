@@ -17,6 +17,14 @@ This repository is open source. Feel free to contribute or fork it.
 > Note: If you intend to use these dependencies, or wish to add your own, I recommend that you a create a Python Virtual Environment. I'll leave a quick tutorial for linux users [here](#how-to-use-a-python-virtual-environment).
 
 
+## ToDo
+- Separate functionality into separate cogs.
+- Create Flask webserver.
+    - Allow users to generate a custom event embed.
+- Save user data in MongoDB database.
+    - Bot should be able to fetch how active users are in each server.
+
+
 ## How to use a Python Virtual Environment
 A Python Virtual Environment is the best way to keep track of your pip libraries. I'll go over how to create one for specificly this project, but the steps will be the same for most other projects.
 
