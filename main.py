@@ -35,13 +35,13 @@ class Partners:
 
 # Command for testing. Will respond with 'pong' on use.
 @tree.command(name='ping', description='ping pong')
-async def ping(interaction):
+async def ping(interaction: discord.Interaction):
     await interaction.response.send_message("pong!")
 
 
 # Drew commands
 @tree.command(name='poll', description='Start a new poll. Up and down vote reactions will be automatically added.')
-async def poll(interaction, *, question: str):
+async def poll(interaction: discord.Interaction, *, question: str):
     start = time.time()
     await interaction.response.send_message(f"`Public poll`")
     msg = await interaction.channel.send(f'> {question}')
@@ -51,12 +51,12 @@ async def poll(interaction, *, question: str):
 
 
 @tree.command(name='roles', description='Summon a role selector.', guild=Partners.add(Partners.artism))
-async def roles(interaction):
+async def roles(interaction: discord.Interaction):
     await interaction.response.send_message("Select a role.", view=RoleSelectView(), ephemeral=True)
     
 
 @tree.command(name='nick', description="Change someone's nickname.")
-async def nick(interaction, member: discord.Member, *, nickname: str):
+async def nick(interaction: discord.Interaction, member: discord.Member, *, nickname: str):
     await member.edit(nick=nickname)
     await interaction.response.send_message(f'nickname was changed for {member.mention} ')
 
@@ -93,7 +93,7 @@ class RoleSelectView(discord.ui.View):
 
 # All help commands
 @tree.command()
-async def help(interaction):
+async def help(interaction: discord.Interaction):
     em = discord.Embed(title='Help', description=f"Use /help <command> for more info.", color=0x1abc9c)
 
     em.add_field(name='Commands', value='poll\nnick\nroles')
@@ -104,12 +104,12 @@ help = app_commands.Group(name='help', description='View helpfull command inform
 
 
 @help.command()
-async def ping(interaction):
+async def ping(interaction: discord.Interaction):
     await interaction.response.send_message("command for debugging. should reply with 'pong'")
 
 
 @help.command()
-async def poll(interaction):
+async def poll(interaction: discord.Interaction):
     em = discord.Embed(title='poll', description='Starts a poll. User and channel pings will still work.',
                        color=0x1abc9c)
     em.add_field(name='**Usage**', value=f'/poll <content>')
@@ -119,7 +119,7 @@ async def poll(interaction):
 
 
 @help.command()
-async def nick(interaction):
+async def nick(interaction: discord.Interaction):
     em = discord.Embed(title='nick', description='Allows users to edit nicknames', color=0x1abc9c)
     em.add_field(name='**Syntax**', value=f'/nick <@user> <nickname>')
     em.add_field(name='Example', value=f'/nick @example example nickname')
@@ -128,7 +128,7 @@ async def nick(interaction):
 
 
 @help.command()
-async def roles(interaction):
+async def roles(interaction: discord.Interaction):
     em = discord.Embed(title='roles', description='Lets the user select their roles', color=0x1abc9c)
     em.add_field(name='**Syntax**', value=f'/roles')
 
@@ -143,7 +143,7 @@ tree.add_command(help)
 current_guild = None
 
 @client.event
-async def on_message(interaction):
+async def on_message(interaction: discord.Interaction):
     today = date.today()
     now = datetime.now()
     global current_guild
@@ -151,6 +151,16 @@ async def on_message(interaction):
         current_guild = interaction.author.guild
         print(f'{current_guild}:')
     print(f'[({now}) {interaction.author.name} in {interaction.channel.name}] {interaction.content}')
+
+    if interaction.author.id != client.user.id:
+        if 'penis' in interaction.content.casefold():
+            await interaction.channel.send('penis')
+
+        if 'i love' in interaction.content.casefold() and 'drew' in interaction.content.casefold():
+            await interaction.channel.send(f'i love you too, {interaction.author.name}')
+
+        if 'thank you' in interaction.content.casefold() and 'drew' in interaction.content.casefold():
+            await interaction.channel.send(f"you're welcome, {interaction.author.name}")
 
 
 # On bot startup
