@@ -139,6 +139,13 @@ tree.remove_command('help')
 tree.add_command(help)
 
 
+# On join
+@client.event
+async def on_member_join(member):
+    role = member.guild.get_role(1036814232420892712)
+    await member.add_roles(role)
+
+
 # On message
 current_guild = None
 
@@ -162,7 +169,7 @@ async def on_message(interaction: discord.Interaction):
         if 'thank you' in interaction.content.casefold() and 'drew' in interaction.content.casefold():
             await interaction.channel.send(f"you're welcome, {interaction.author.name}")
 
-
+        
 # On bot startup
 @client.event
 async def on_ready():
