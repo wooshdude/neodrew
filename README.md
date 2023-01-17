@@ -2,6 +2,7 @@
 
 The official discord bot of Artism(Surreal) (https://artism.place).
 This repository is open source. Feel free to contribute or fork it.
+Need support? Check out our support server at https://discord.gg/uGS9wSjMys!
 
 ## Dependencies
  
