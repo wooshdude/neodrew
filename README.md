@@ -18,7 +18,7 @@ This repository is open source. Feel free to contribute or fork it.
 
 
 ## ToDo
-- Separate functionality into separate cogs.
+- Separate functionality into cogs.
 - Create Flask webserver.
     - Allow users to generate a custom event embed.
 - Save user data in MongoDB database.
