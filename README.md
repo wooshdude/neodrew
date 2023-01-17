@@ -14,6 +14,9 @@ This repository is open source. Feel free to contribute or fork it.
 #### Flask  
 `pip install flask`
 
+#### Requests  
+`pip install requests`  
+
 > Note: If you intend to use these dependencies, or wish to add your own, I recommend that you a create a Python Virtual Environment. I'll leave a quick tutorial for linux users [here](#how-to-use-a-python-virtual-environment).
 
 
