@@ -1,16 +1,68 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	</head>
-	<body>
-		<form method="post">
-			<label for="ename">Event name:</label>
-			<input type="text" id="ename" name="ename"><br>
-			<label for="num">Number of Players</label>
-			<input type-"number" id='num' name='num'></br>
-			<textarea id="description" name="description" rows="4" cols="50">Description about your event.</textarea><br>
-			<input type="submit" value="Create" name='create'>
-		</form>
+  <head>
+    <style>
+      /* Add some basic styling for the page */
+      body {
+        background-color: #333;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+      /* Add some styling for the form */
+      form {
+        width: 30%; /* Adjust the width of the form as per your preference */
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      /* Remove default margin and padding for input and textarea elements */
+      input, textarea {
+        margin: 10px 0;
+        padding: 10px;
+        border: none;
+        background-color: #555;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 1em;
+        text-align: center;
+        resize: none;
+        overflow: hidden;
+      }
+	  /* Change position of textarea contents */
+      textarea {
+          text-align: left;
+      }
 
-	</body>
+      /* Add some margin and padding for the submit button */
+      input[type="submit"] {
+        margin-top: 20px;
+        padding: 5px 10px;
+        background-color: #00bfff;
+        color: #333;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        align-self: center;
+      }
+      /* Change the color of the number input arrows */
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        color: #00bfff;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post">
+      <input type="text" id="ename" name="ename" placeholder="Event name"><br>
+      <input type="number" id="num" name="num" placeholder="Number of Players"><br>
+      <textarea id="description" name="description" rows="8" cols="50" placeholder="Description about your event."></textarea><br>
+      <input type="submit" value="Create" name="create">
+    </form>
+  </body>
 </html>
