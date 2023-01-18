@@ -24,8 +24,6 @@ Need support? Check out our support server at https://discord.gg/uGS9wSjMys!
 
 ## ToDo
 - Separate functionality into cogs.
-- Create Flask webserver.
-    - Allow users to generate a custom event embed.
 - Save user data in MongoDB database.
     - Bot should be able to fetch how active users are in each server.
 
