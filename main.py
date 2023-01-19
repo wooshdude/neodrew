@@ -253,7 +253,7 @@ current_guild = None
 @client.event
 async def on_message(interaction: discord.Interaction):
     today = date.today()
-    now = datetime.now()
+    now = datetime.now() 
     global current_guild
     if current_guild != interaction.author.guild:
         current_guild = interaction.author.guild

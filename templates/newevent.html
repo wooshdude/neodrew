@@ -58,6 +58,13 @@
     </style>
   </head>
   <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
     <form method="post">
       <input type="text" id="ename" name="ename" placeholder="Event name"><br>
       <input type="number" id="num" name="num" placeholder="Number of Players"><br>

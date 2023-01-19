@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, url_for, request, session
+from flask import Flask, redirect, render_template, url_for, request, session, flash
 import random
 import string
 
@@ -20,7 +20,8 @@ def create_event():
         events[res] = {"title": request.form["ename"], "num": request.form['num'], "event": request.form["description"]}
         print(events[res])
 
-        return f"Your event code is {res}"
+        flash(f"Your event code is {res}")
+        return render_template('newevent.html')
 
     return render_template('newevent.html')
 
